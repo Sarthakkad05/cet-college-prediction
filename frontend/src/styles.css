@@ -1,0 +1,21 @@
+:root { color-scheme: light dark; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+.container { max-width: 960px; margin: 0 auto; padding: 16px; }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; }
+.brand { font-weight: 700; }
+.links a { margin-right: 12px; text-decoration: none; }
+.card { background: rgba(127,127,127,0.08); border: 1px solid rgba(127,127,127,0.2); border-radius: 8px; padding: 16px; }
+.grid { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
+label { display: flex; flex-direction: column; gap: 6px; }
+input { padding: 8px; border-radius: 6px; border: 1px solid rgba(127,127,127,0.3); }
+button { padding: 10px 14px; border-radius: 6px; border: 1px solid rgba(127,127,127,0.3); cursor: pointer; }
+.error { color: #b00020; margin-top: 10px; }
+.muted { opacity: 0.7; }
+.small { font-size: 12px; }
+.results { margin-top: 12px; }
+.tabs { display: flex; gap: 8px; margin-bottom: 12px; }
+.tabs .active { background: #3b82f6; color: white; border-color: #3b82f6; }
+@media (max-width: 640px){ .grid { grid-template-columns: 1fr; } }
+
+
