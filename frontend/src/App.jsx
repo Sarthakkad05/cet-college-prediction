@@ -1,7 +1,15 @@
-import { Link, Route, Routes, Navigate } from 'react-router-dom';
+import { Link, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import PredictForm from './components/PredictForm.jsx';
-import Auth from './components/Auth.jsx';
-import Compare from './components/Compare.jsx';
+
+function NavLink({ to, children }) {
+  const location = useLocation();
+  const isActive = location.pathname === to;
+  return (
+    <Link to={to} className={isActive ? 'active' : ''}>
+      {children}
+    </Link>
+  );
+}
 
 export default function App() {
   return (
@@ -9,21 +17,28 @@ export default function App() {
       <nav className="nav">
         <div className="brand">CET Predictor</div>
         <div className="links">
-          <Link to="/predict">Predict</Link>
-          <Link to="/compare">Compare</Link>
-          <Link to="/auth">Auth</Link>
+          <NavLink to="/predict">Predict</NavLink>
         </div>
       </nav>
       <main>
         <Routes>
           <Route path="/" element={<Navigate to="/predict" replace />} />
           <Route path="/predict" element={<PredictForm />} />
-          <Route path="/compare" element={<Compare />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="*" element={<div>Not Found</div>} />
+          <Route path="*" element={
+            <div className="card">
+              <h2>404 - Page Not Found</h2>
+              <p className="muted">The page you're looking for doesn't exist.</p>
+              <Link to="/predict">
+                <button style={{ marginTop: '1rem' }}>Go to Predict</button>
+              </Link>
+            </div>
+          } />
         </Routes>
       </main>
-      <footer className="footer">Backend: /api/* → proxied to Node</footer>
+      <footer className="footer">
+        <p>© 2024 CET Predictor | Powered by Machine Learning</p>
+        <p className="small muted">Backend: /api/* → proxied to Node</p>
+      </footer>
     </div>
   );
 }
