@@ -67,7 +67,7 @@ export default function Auth() {
       
       <form onSubmit={onSubmit}>
         <div className="grid">
-          <label>
+        <label>
             📧 Email Address
             <input 
               name="email" 
@@ -77,8 +77,8 @@ export default function Auth() {
               placeholder="you@example.com"
               required 
             />
-          </label>
-          <label>
+        </label>
+        <label>
             🔒 Password
             <input 
               name="password" 
@@ -88,7 +88,7 @@ export default function Auth() {
               placeholder="Enter your password"
               required 
             />
-          </label>
+        </label>
         </div>
         
         <button type="submit" disabled={loading} style={{ marginTop: '1rem', width: '100%' }}>
